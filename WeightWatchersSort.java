@@ -2,7 +2,7 @@ import java.util.*;
 import java.lang.Math;
 
 public class WeightWatchersSort {
-    
+
     public static void main(String args[]) {
 
         ///////////////////
@@ -33,7 +33,9 @@ public class WeightWatchersSort {
         //WeightWatchersSort//
         //////////////////////
 
-        while (true) {
+        boolean isSorted = false;
+
+        while (!isSorted) {
 
             WeightNode[] listOfWeights = new WeightNode[size];
 
@@ -67,21 +69,22 @@ public class WeightWatchersSort {
 
             }
 
-            if(minWeight == maxWeight){ //means array is sorted
-                break;
-            }
+            if(minWeight != maxWeight) {
 
-            for (int i = 0, minWeightInsert = 0, maxWeightInsert = maxWeightCount; i < size; i++) {
+                for (int i = 0, minWeightInsert = 0, maxWeightInsert = maxWeightCount; i < size; i++) {
 
-                if (listOfWeights[i].weight == multiplier) { 
-                    //places vals with max weight at the location where non-max weights end
-                    arrayValues[size-maxWeightInsert] = listOfWeights[i].value;
-                    maxWeightInsert--;
-                } else {
-                    arrayValues[minWeightInsert] = listOfWeights[i].value;
-                    minWeightInsert++;
+                    if (listOfWeights[i].weight == multiplier) {
+                        //places vals with max weight at the location where non-max weights end
+                        arrayValues[size - maxWeightInsert] = listOfWeights[i].value;
+                        maxWeightInsert--;
+                    } else {
+                        arrayValues[minWeightInsert] = listOfWeights[i].value;
+                        minWeightInsert++;
+                    }
+
                 }
-
+            } else{
+                isSorted = true;
             }
         }
 
