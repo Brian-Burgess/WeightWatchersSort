@@ -8,9 +8,7 @@ public class WeightWatchersSort {
         ///////////////////
         //Unrelated setup//
         ///////////////////
-
-        HashMap<Double, Integer> valStore = new HashMap<>();
-
+        
         int size = 10000;
         int[] arrayValues = new int[size];
 
